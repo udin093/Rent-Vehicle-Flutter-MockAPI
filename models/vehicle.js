@@ -5,10 +5,10 @@ const getVehicles = async () => {
   return result.rows;
 };
 
-const createVehicle = async (brand_id, name, year, description, price_per_day, images_url) => {
+const createVehicle = async (brand_id, name, year, description, price_per_day, image_url) => {
   const result = await pool.query(
-    'INSERT INTO vehicles (brand_id, name, year, description, price_per_day, images_url) VALUES ($1, $2, $3, $4, $5, $6) RETURNING *',
-    [brand_id, name, year, description, price_per_day, images_url]
+    'INSERT INTO vehicles (brand_id, name, year, description, price_per_day, image_url) VALUES ($1, $2, $3, $4, $5, $6) RETURNING *',
+    [brand_id, name, year, description, price_per_day, image_url]
   );
   return result.rows[0];
 };

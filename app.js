@@ -18,5 +18,6 @@ app.use('/api/users', userRoutes);
 app.use('/api/vehicles', vehicleRoutes);
 app.use('/api/rentals', rentalRoutes);
 app.use('/api/chats', chatRoutes);
+app.use('/images', express.static('/Users/khalid093/Documents/MyProject/Flutter/Vehicle-Rent-App/Images'));
 
 module.exports = app;

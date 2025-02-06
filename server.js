@@ -12,20 +12,16 @@ pool.query('SELECT NOW()', (err, res) => {
     }
 });
 
-pool.query('SELECT 1')
-  .then(() => console.log('Koneksi database berhasil!'))
-  .catch(err => console.error('Error koneksi database:', err));
-
-// pool.connect(err => {
-//     if(err){
-//         console.log(err.message);
-//     }else{
-//         console.log('Connected to db');
-//     }
-// });
+pool.connect(err => {
+    if(err){
+        console.log(err.message);
+    }else{
+        console.log('Connected to db');
+    }
+});
 
 app.listen(PORT, () => {
     console.log(`Server running on port ${PORT}`)
 });
 
-//NOTE : NEXT HOW TO RUNNING BACKEND AND SUCCESSFULLY TO SEND DATA TO POSTGRESQL
+//TODO : ADD IMAGES LOCAL PATH INTO POSTGRE WITH NODEJS
