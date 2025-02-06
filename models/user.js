@@ -19,4 +19,9 @@ const comparePassword = async (password, hashedPassword) => {
   return await bcrypt.compare(password, hashedPassword);
 };
 
-module.exports = { createUser, getUserByEmail, comparePassword };
+const getUserById = async (id) => {
+    const result = await pool.query('SELECT id, name, email, phone, role FROM users WHERE id = $1', [id]);
+    return result.rows[0];
+};
+  
+module.exports = { createUser, getUserByEmail, comparePassword, getUserById };
