@@ -12,13 +12,17 @@ pool.query('SELECT NOW()', (err, res) => {
     }
 });
 
-pool.connect(err => {
-    if(err){
-        console.log(err.message);
-    }else{
-        console.log('Connected to db');
-    }
-});
+pool.query('SELECT 1')
+  .then(() => console.log('Koneksi database berhasil!'))
+  .catch(err => console.error('Error koneksi database:', err));
+
+// pool.connect(err => {
+//     if(err){
+//         console.log(err.message);
+//     }else{
+//         console.log('Connected to db');
+//     }
+// });
 
 app.listen(PORT, () => {
     console.log(`Server running on port ${PORT}`)
